@@ -1,23 +1,23 @@
 document.addEventListener('DOMContentLoaded', () => {
   const themeToggleBtn = document.getElementById('theme-toggle');
 
-  // Applies theme attribute to both <html> and <body> to prevent inheritance mismatch
+  // Synchronize theme across both html and body elements
   function applyTheme(theme) {
     document.documentElement.setAttribute('data-theme', theme);
     document.body.setAttribute('data-theme', theme);
     localStorage.setItem('mehar-portfolio-theme', theme);
   }
 
-  // Load saved theme or default to 'dark'
+  // Load stored theme or default to 'dark'
   const savedTheme = localStorage.getItem('mehar-portfolio-theme') || 'dark';
   applyTheme(savedTheme);
 
-  // Toggle theme on button click
+  // Toggle button event listener
   if (themeToggleBtn) {
     themeToggleBtn.addEventListener('click', () => {
-      const activeTheme = document.documentElement.getAttribute('data-theme') || 'dark';
-      const nextTheme = activeTheme === 'dark' ? 'light' : 'dark';
-      applyTheme(nextTheme);
+      const currentTheme = document.documentElement.getAttribute('data-theme') || 'dark';
+      const targetTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      applyTheme(targetTheme);
     });
   }
 
@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
     yearSpan.textContent = new Date().getFullYear();
   }
 
-  // Mobile Menu Navigation
+  // Mobile Hamburger Toggle
   const hamburger = document.getElementById('hamburger');
   const navMenu = document.querySelector('.nav-menu');
   const navLinks = document.querySelectorAll('.nav-link');
@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Active Link on Scroll
+  // ScrollSpy Active Link Navigation
   const sections = document.querySelectorAll('section[id]');
   const navObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
