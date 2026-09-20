@@ -1,25 +1,28 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // 1. Dynamic Footer Year
+  // 1. Theme Toggle - Targeting <html> directly for reliable variable cascading
+  const themeToggleBtn = document.getElementById('theme-toggle');
+  const storedTheme = localStorage.getItem('mehar-portfolio-theme') || 'dark';
+  
+  // Apply saved theme to <html> on page load
+  document.documentElement.setAttribute('data-theme', storedTheme);
+
+  if (themeToggleBtn) {
+    themeToggleBtn.addEventListener('click', () => {
+      const activeTheme = document.documentElement.getAttribute('data-theme');
+      const targetTheme = activeTheme === 'dark' ? 'light' : 'dark';
+      
+      document.documentElement.setAttribute('data-theme', targetTheme);
+      localStorage.setItem('mehar-portfolio-theme', targetTheme);
+    });
+  }
+
+  // 2. Dynamic Year in Footer
   const yearSpan = document.getElementById('year');
   if (yearSpan) {
     yearSpan.textContent = new Date().getFullYear();
   }
 
-  // 2. Theme Toggle (Light / Dark) with Local Storage Persistence
-  const themeToggleBtn = document.getElementById('theme-toggle');
-  const storedTheme = localStorage.getItem('aditya-portfolio-theme') || 'dark';
-  document.body.setAttribute('data-theme', storedTheme);
-
-  if (themeToggleBtn) {
-    themeToggleBtn.addEventListener('click', () => {
-      const currentTheme = document.body.getAttribute('data-theme');
-      const nextTheme = currentTheme === 'dark' ? 'light' : 'dark';
-      document.body.setAttribute('data-theme', nextTheme);
-      localStorage.setItem('aditya-portfolio-theme', nextTheme);
-    });
-  }
-
-  // 3. Mobile Navigation Menu Toggle
+  // 3. Mobile Hamburger Menu
   const hamburger = document.getElementById('hamburger');
   const navMenu = document.querySelector('.nav-menu');
   const navLinks = document.querySelectorAll('.nav-link');
@@ -38,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 4. Active Navigation Link on Scroll (Intersection Observer)
+  // 4. ScrollSpy Navigation Highlighting
   const sections = document.querySelectorAll('section[id]');
   const observerOptions = {
     threshold: 0.35,

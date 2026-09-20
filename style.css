@@ -1,17 +1,48 @@
 /* ==========================================================================
-   CSS Variables & Design Tokens
+   CSS Variables & Complete Theme Tokens (Targeting :root & [data-theme])
    ========================================================================== */
-:root {
+:root,
+html[data-theme="dark"] {
   --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
 
-  /* Theme Defaults (Light) */
+  /* Dark Theme (Default) */
+  --bg-primary: #0b1120;
+  --bg-secondary: #0f172a;
+  --bg-card: #1e293b;
+  --bg-card-hover: #273549;
+  --bg-header: rgba(11, 17, 32, 0.85);
+  --border-color: #334155;
+
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+
+  --accent: #38bdf8;
+  --accent-light: rgba(56, 189, 248, 0.15);
+  --accent-glow: rgba(56, 189, 248, 0.25);
+
+  --success: #10b981;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
+
+  --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+html[data-theme="light"] {
+  /* Light Theme */
   --bg-primary: #ffffff;
   --bg-secondary: #f8fafc;
   --bg-card: #ffffff;
   --bg-card-hover: #f1f5f9;
+  --bg-header: rgba(255, 255, 255, 0.9);
   --border-color: #e2e8f0;
-  
+
   --text-primary: #0f172a;
   --text-secondary: #475569;
   --text-muted: #94a3b8;
@@ -20,40 +51,13 @@
   --accent-light: #e0f2fe;
   --accent-glow: rgba(2, 132, 199, 0.15);
 
-  --success: #10b981;
-  --radius-sm: 6px;
-  --radius-md: 10px;
-  --radius-lg: 16px;
-
   --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
   --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-
-  --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-[data-theme="dark"] {
-  --bg-primary: #0b1120;
-  --bg-secondary: #0f172a;
-  --bg-card: #1e293b;
-  --bg-card-hover: #273549;
-  --border-color: #334155;
-
-  --text-primary: #f8fafc;
-  --text-secondary: #94a3b8;
-  --text-muted: #64748b;
-
-  --accent: #38bdf8;
-  --accent-light: rgba(56, 189, 248, 0.12);
-  --accent-glow: rgba(56, 189, 248, 0.25);
-
-  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
 }
 
 /* ==========================================================================
-   Reset & Global Base
+   Reset & Applied Canvas
    ========================================================================== */
 * {
   margin: 0;
@@ -63,15 +67,15 @@
 
 html {
   scroll-behavior: smooth;
-  font-family: var(--font-sans);
-  background-color: var(--bg-primary);
-  color: var(--text-primary);
-  line-height: 1.6;
 }
 
-body {
-  overflow-x: hidden;
+html, body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  line-height: 1.6;
   transition: background-color 0.3s ease, color 0.3s ease;
+  overflow-x: hidden;
 }
 
 .container {
@@ -115,21 +119,17 @@ body {
 }
 
 /* ==========================================================================
-   Header & Navigation
+   Header & Dynamic Themed Navbar
    ========================================================================== */
 .header {
   position: sticky;
   top: 0;
   z-index: 1000;
-  background-color: rgba(11, 17, 32, 0.85);
+  background-color: var(--bg-header);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border-color);
-  transition: var(--transition);
-}
-
-[data-theme="light"] .header {
-  background-color: rgba(255, 255, 255, 0.9);
+  transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 .navbar {
@@ -145,6 +145,7 @@ body {
   font-weight: 700;
   color: var(--text-primary);
   text-decoration: none;
+  letter-spacing: -0.5px;
 }
 
 .terminal-prefix {
@@ -189,21 +190,28 @@ body {
 .theme-btn {
   background: var(--bg-card);
   border: 1px solid var(--border-color);
-  color: var(--text-primary);
-  padding: 0.5rem 0.75rem;
+  color: var(--accent);
+  padding: 0.55rem 0.8rem;
   border-radius: var(--radius-sm);
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
   transition: var(--transition);
 }
 
 .theme-btn:hover {
   border-color: var(--accent);
+  background: var(--bg-card-hover);
+  transform: translateY(-1px);
 }
 
-[data-theme="dark"] .light-icon { display: block; }
-[data-theme="dark"] .dark-icon { display: none; }
-[data-theme="light"] .light-icon { display: none; }
-[data-theme="light"] .dark-icon { display: block; }
+/* Icon visibility switches cleanly per theme */
+html[data-theme="dark"] .light-icon { display: inline-block; }
+html[data-theme="dark"] .dark-icon { display: none; }
+html[data-theme="light"] .light-icon { display: none; }
+html[data-theme="light"] .dark-icon { display: inline-block; }
 
 .hamburger {
   display: none;
@@ -225,16 +233,14 @@ body {
    Hero Section
    ========================================================================== */
 .hero-section {
-  padding: 6.5rem 0 4rem;
-  display: flex;
-  align-items: center;
+  padding: 6rem 0 4rem;
 }
 
 .hero-badge {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 0.35rem 0.85rem;
+  padding: 0.4rem 0.9rem;
   background: var(--accent-light);
   border: 1px solid var(--border-color);
   border-radius: 999px;
@@ -266,6 +272,7 @@ body {
   letter-spacing: -0.02em;
   line-height: 1.15;
   margin-bottom: 0.75rem;
+  color: var(--text-primary);
 }
 
 .hero-subtitle {
@@ -277,7 +284,7 @@ body {
 
 .hero-description {
   max-width: 780px;
-  font-size: 1.1rem;
+  font-size: 1.08rem;
   color: var(--text-secondary);
   line-height: 1.7;
   margin-bottom: 2.25rem;
@@ -357,7 +364,7 @@ body {
    Metrics Section
    ========================================================================== */
 .metrics-section {
-  padding: 2.5rem 0 4rem;
+  padding: 2rem 0 4rem;
 }
 
 .metrics-grid {
@@ -660,47 +667,6 @@ body {
   color: var(--text-muted);
   display: block;
   margin-top: 0.35rem;
-}
-
-/* ==========================================================================
-   Publications Grid
-   ========================================================================== */
-.publications-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 1.5rem;
-}
-
-.pub-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius-md);
-  padding: 1.75rem;
-  transition: var(--transition);
-}
-
-.pub-card:hover {
-  border-color: var(--accent);
-}
-
-.pub-journal {
-  font-size: 0.8rem;
-  font-family: var(--font-mono);
-  color: var(--accent);
-  display: block;
-  margin-bottom: 0.5rem;
-}
-
-.pub-title {
-  font-size: 1.05rem;
-  color: var(--text-primary);
-  line-height: 1.5;
-  margin-bottom: 0.75rem;
-}
-
-.pub-date {
-  font-size: 0.85rem;
-  color: var(--text-muted);
 }
 
 /* ==========================================================================
