@@ -1,28 +1,33 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // 1. Theme Toggle - Targeting <html> directly for reliable variable cascading
   const themeToggleBtn = document.getElementById('theme-toggle');
-  const storedTheme = localStorage.getItem('mehar-portfolio-theme') || 'dark';
-  
-  // Apply saved theme to <html> on page load
-  document.documentElement.setAttribute('data-theme', storedTheme);
 
+  // Helper function to apply theme to BOTH <html> and <body> synchronously
+  function applyTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+    document.body.setAttribute('data-theme', theme);
+    localStorage.setItem('mehar-portfolio-theme', theme);
+  }
+
+  // Load saved theme or default to 'dark'
+  const savedTheme = localStorage.getItem('mehar-portfolio-theme') || 'dark';
+  applyTheme(savedTheme);
+
+  // Toggle handler
   if (themeToggleBtn) {
     themeToggleBtn.addEventListener('click', () => {
-      const activeTheme = document.documentElement.getAttribute('data-theme');
+      const activeTheme = document.documentElement.getAttribute('data-theme') || 'dark';
       const targetTheme = activeTheme === 'dark' ? 'light' : 'dark';
-      
-      document.documentElement.setAttribute('data-theme', targetTheme);
-      localStorage.setItem('mehar-portfolio-theme', targetTheme);
+      applyTheme(targetTheme);
     });
   }
 
-  // 2. Dynamic Year in Footer
+  // Auto-updating Footer Year
   const yearSpan = document.getElementById('year');
   if (yearSpan) {
     yearSpan.textContent = new Date().getFullYear();
   }
 
-  // 3. Mobile Hamburger Menu
+  // Mobile Hamburger Menu
   const hamburger = document.getElementById('hamburger');
   const navMenu = document.querySelector('.nav-menu');
   const navLinks = document.querySelectorAll('.nav-link');
@@ -41,12 +46,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 4. ScrollSpy Navigation Highlighting
+  // Active Link on Scroll
   const sections = document.querySelectorAll('section[id]');
-  const observerOptions = {
-    threshold: 0.35,
-  };
-
   const navObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
@@ -60,7 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
       }
     });
-  }, observerOptions);
+  }, { threshold: 0.35 });
 
   sections.forEach((sec) => navObserver.observe(sec));
 });

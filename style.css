@@ -1,17 +1,17 @@
 /* ==========================================================================
-   CSS Variables & Complete Theme Tokens (Targeting :root & [data-theme])
+   CSS Variables & Theme Definitions
    ========================================================================== */
 :root,
-html[data-theme="dark"] {
+[data-theme="dark"] {
   --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
 
-  /* Dark Theme (Default) */
+  /* Dark Theme Palette */
   --bg-primary: #0b1120;
   --bg-secondary: #0f172a;
   --bg-card: #1e293b;
   --bg-card-hover: #273549;
-  --bg-header: rgba(11, 17, 32, 0.85);
+  --bg-header: rgba(11, 17, 32, 0.88);
   --border-color: #334155;
 
   --text-primary: #f8fafc;
@@ -19,7 +19,7 @@ html[data-theme="dark"] {
   --text-muted: #64748b;
 
   --accent: #38bdf8;
-  --accent-light: rgba(56, 189, 248, 0.15);
+  --accent-light: rgba(56, 189, 248, 0.12);
   --accent-glow: rgba(56, 189, 248, 0.25);
 
   --success: #10b981;
@@ -27,37 +27,37 @@ html[data-theme="dark"] {
   --radius-md: 10px;
   --radius-lg: 16px;
 
-  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
   --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
   --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
 
   --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-html[data-theme="light"] {
-  /* Light Theme */
-  --bg-primary: #ffffff;
-  --bg-secondary: #f8fafc;
+[data-theme="light"] {
+  /* Light Theme Palette */
+  --bg-primary: #f8fafc;
+  --bg-secondary: #ffffff;
   --bg-card: #ffffff;
   --bg-card-hover: #f1f5f9;
-  --bg-header: rgba(255, 255, 255, 0.9);
-  --border-color: #e2e8f0;
+  --bg-header: rgba(248, 250, 252, 0.9);
+  --border-color: #cbd5e1;
 
   --text-primary: #0f172a;
-  --text-secondary: #475569;
-  --text-muted: #94a3b8;
+  --text-secondary: #334155;
+  --text-muted: #64748b;
 
   --accent: #0284c7;
-  --accent-light: #e0f2fe;
+  --accent-light: rgba(2, 132, 199, 0.1);
   --accent-glow: rgba(2, 132, 199, 0.15);
 
-  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
 }
 
 /* ==========================================================================
-   Reset & Applied Canvas
+   Global Reset & Base Canvas
    ========================================================================== */
 * {
   margin: 0;
@@ -74,7 +74,7 @@ html, body {
   color: var(--text-primary);
   font-family: var(--font-sans);
   line-height: 1.6;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition: background-color 0.25s ease, color 0.25s ease;
   overflow-x: hidden;
 }
 
@@ -119,7 +119,7 @@ html, body {
 }
 
 /* ==========================================================================
-   Header & Dynamic Themed Navbar
+   Header & Dynamic Navbar
    ========================================================================== */
 .header {
   position: sticky;
@@ -129,7 +129,7 @@ html, body {
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border-color);
-  transition: background-color 0.3s ease, border-color 0.3s ease;
+  transition: background-color 0.25s ease, border-color 0.25s ease;
 }
 
 .navbar {
@@ -190,28 +190,27 @@ html, body {
 .theme-btn {
   background: var(--bg-card);
   border: 1px solid var(--border-color);
-  color: var(--accent);
+  color: var(--text-primary);
   padding: 0.55rem 0.8rem;
   border-radius: var(--radius-sm);
   cursor: pointer;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-size: 1rem;
+  font-size: 1.05rem;
   transition: var(--transition);
 }
 
 .theme-btn:hover {
   border-color: var(--accent);
-  background: var(--bg-card-hover);
-  transform: translateY(-1px);
+  color: var(--accent);
 }
 
-/* Icon visibility switches cleanly per theme */
-html[data-theme="dark"] .light-icon { display: inline-block; }
-html[data-theme="dark"] .dark-icon { display: none; }
-html[data-theme="light"] .light-icon { display: none; }
-html[data-theme="light"] .dark-icon { display: inline-block; }
+/* Toggle icon display per theme */
+[data-theme="dark"] .light-icon { display: inline-block; }
+[data-theme="dark"] .dark-icon { display: none; }
+[data-theme="light"] .light-icon { display: none; }
+[data-theme="light"] .dark-icon { display: inline-block; }
 
 .hamburger {
   display: none;
@@ -380,6 +379,7 @@ html[data-theme="light"] .dark-icon { display: inline-block; }
   padding: 1.75rem;
   text-align: center;
   transition: var(--transition);
+  box-shadow: var(--shadow-sm);
 }
 
 .metric-card:hover {
@@ -423,6 +423,9 @@ html[data-theme="light"] .dark-icon { display: inline-block; }
   border-left: 3px solid var(--accent);
   border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
   color: var(--text-primary);
+  border-top: 1px solid var(--border-color);
+  border-right: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
 }
 
 /* ==========================================================================
@@ -440,6 +443,7 @@ html[data-theme="light"] .dark-icon { display: inline-block; }
   border-radius: var(--radius-md);
   padding: 1.75rem;
   transition: var(--transition);
+  box-shadow: var(--shadow-sm);
 }
 
 .skill-card:hover {
@@ -628,12 +632,13 @@ html[data-theme="light"] .dark-icon { display: inline-block; }
   gap: 1rem;
   align-items: flex-start;
   transition: var(--transition);
+  box-shadow: var(--shadow-sm);
 }
 
 .cert-card:hover {
   border-color: var(--accent);
   transform: translateY(-3px);
-  box-shadow: var(--shadow-sm);
+  box-shadow: var(--shadow-md);
 }
 
 .cert-icon-wrapper {
@@ -685,6 +690,7 @@ html[data-theme="light"] .dark-icon { display: inline-block; }
   padding: 1.75rem;
   display: flex;
   flex-direction: column;
+  box-shadow: var(--shadow-sm);
 }
 
 .edu-year {
@@ -791,6 +797,7 @@ html[data-theme="light"] .dark-icon { display: inline-block; }
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
+  box-shadow: var(--shadow-sm);
 }
 
 .form-group {
@@ -807,7 +814,7 @@ html[data-theme="light"] .dark-icon { display: inline-block; }
 
 .form-group input,
 .form-group textarea {
-  background: var(--bg-secondary);
+  background: var(--bg-primary);
   border: 1px solid var(--border-color);
   border-radius: var(--radius-sm);
   padding: 0.75rem 1rem;
