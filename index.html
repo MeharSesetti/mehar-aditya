@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sesetti Mehar Aditya | Site Reliability Engineer</title>
+  <meta name="description" content="Portfolio of Sesetti Mehar Aditya - Site Reliability Engineer specializing in enterprise infrastructure, cloud platforms, CI/CD automation, and observability." />
+  
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body data-theme="dark">
+  <!-- Navigation -->
+  <header class="header">
+    <nav class="navbar container">
+      <a href="#hero" class="nav-logo">
+        <span class="terminal-prefix">&gt;</span> aditya.mehar<span class="cursor">_</span>
+      </a>
+      <ul class="nav-menu">
+        <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+        <li class="nav-item"><a href="#skills" class="nav-link">Skills</a></li>
+        <li class="nav-item"><a href="#experience" class="nav-link">Experience</a></li>
+        <li class="nav-item"><a href="#certifications" class="nav-link">Certifications</a></li>
+        <li class="nav-item"><a href="#education" class="nav-link">Education</a></li>
+        <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button id="theme-toggle" class="theme-btn" aria-label="Toggle theme">
+          <i class="fa-solid fa-sun light-icon"></i>
+          <i class="fa-solid fa-moon dark-icon"></i>
+        </button>
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section id="hero" class="hero-section">
+      <div class="container hero-container">
+        <div class="hero-badge">
+          <span class="pulse-dot"></span> Available for SRE & Platform Engineering Roles
+        </div>
+        <h1 class="hero-title">
+          Hi, I'm <span class="text-accent">Sesetti Mehar Aditya</span>
+        </h1>
+        <h2 class="hero-subtitle">Site Reliability Engineer & Infrastructure Automation Specialist</h2>
+        <p class="hero-description">
+          Results-driven SRE with 5 years of experience building resilient cloud/on-premise architectures, streamlining CI/CD pipelines, automating operational toil, and conducting deep-dive root cause analysis for mission-critical enterprise platforms.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#contact" class="btn btn-primary">
+            <i class="fa-solid fa-envelope"></i> Get In Touch
+          </a>
+          <a href="#experience" class="btn btn-secondary">
+            <i class="fa-solid fa-terminal"></i> View Experience
+          </a>
+        </div>
+
+        <div class="hero-meta">
+          <div class="meta-item">
+            <i class="fa-solid fa-location-dot"></i>
+            <span>Rajahmundry, Andhra Pradesh, India</span>
+          </div>
+          <div class="meta-item">
+            <i class="fa-solid fa-envelope"></i>
+            <a href="mailto:mehersesetti@gmail.com">mehersesetti@gmail.com</a>
+          </div>
+          <div class="meta-item">
+            <i class="fa-brands fa-linkedin"></i>
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Key Metrics Section -->
+    <section class="metrics-section">
+      <div class="container metrics-grid">
+        <div class="metric-card">
+          <h3 class="metric-value">5+</h3>
+          <p class="metric-label">Years of Infrastructure Experience</p>
+        </div>
+        <div class="metric-card">
+          <h3 class="metric-value">45 hrs</h3>
+          <p class="metric-label">Weekly Toil Eliminated via Automation</p>
+        </div>
+        <div class="metric-card">
+          <h3 class="metric-value">30%</h3>
+          <p class="metric-label">Faster Deployments via CI/CD</p>
+        </div>
+        <div class="metric-card">
+          <h3 class="metric-value">20%</h3>
+          <p class="metric-label">Reduction in Escalation MTTR</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-subtitle">Overview</span>
+          <h2 class="section-title">About Me</h2>
+        </div>
+        <div class="about-content">
+          <p>
+            I specialize in safeguarding the uptime and performance of enterprise-grade storage and cloud architectures. My work bridges software engineering and operations, utilizing containerization (Docker, Kubernetes), automated scripting (Python, Bash), and robust observability pipelines (Prometheus, Grafana, Log Analytics).
+          </p>
+          <p>
+            Whether performing deep-dive source code RCA, managing Hotfix/CHF releases during high-severity production outages, or writing declarative infrastructure automation, I focus on reducing MTTR, eliminating manual toil, and enforcing strict Service Level Objectives (SLOs).
+          </p>
+          <div class="languages-spoken">
+            <strong>Spoken Languages:</strong> English, Telugu, Hindi
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section bg-alt">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-subtitle">Technical Stack</span>
+          <h2 class="section-title">Core Competencies</h2>
+        </div>
+
+        <div class="skills-grid">
+          <!-- Category 1 -->
+          <div class="skill-card">
+            <div class="skill-header">
+              <i class="fa-solid fa-cloud skill-icon"></i>
+              <h3>Cloud & Infrastructure</h3>
+            </div>
+            <div class="tag-cloud">
+              <span class="skill-tag">Azure</span>
+              <span class="skill-tag">AWS</span>
+              <span class="skill-tag">GCP</span>
+              <span class="skill-tag">Terraform</span>
+              <span class="skill-tag">Infrastructure as Code (IaC)</span>
+            </div>
+          </div>
+
+          <!-- Category 2 -->
+          <div class="skill-card">
+            <div class="skill-header">
+              <i class="fa-solid fa-boxes-stacked skill-icon"></i>
+              <h3>Containers & CI/CD</h3>
+            </div>
+            <div class="tag-cloud">
+              <span class="skill-tag">Docker</span>
+              <span class="skill-tag">Kubernetes</span>
+              <span class="skill-tag">Jenkins</span>
+              <span class="skill-tag">GitLab CI/CD</span>
+              <span class="skill-tag">Git & GitHub</span>
+              <span class="skill-tag">Jira & Confluence</span>
+            </div>
+          </div>
+
+          <!-- Category 3 -->
+          <div class="skill-card">
+            <div class="skill-header">
+              <i class="fa-solid fa-code skill-icon"></i>
+              <h3>Programming & Scripting</h3>
+            </div>
+            <div class="tag-cloud">
+              <span class="skill-tag">Python</span>
+              <span class="skill-tag">Bash / Shell</span>
+              <span class="skill-tag">PowerShell</span>
+              <span class="skill-tag">C Programming</span>
+              <span class="skill-tag">YAML</span>
+              <span class="skill-tag">JSON</span>
+            </div>
+          </div>
+
+          <!-- Category 4 -->
+          <div class="skill-card">
+            <div class="skill-header">
+              <i class="fa-solid fa-server skill-icon"></i>
+              <h3>OS & Virtualization</h3>
+            </div>
+            <div class="tag-cloud">
+              <span class="skill-tag">Linux (RHEL, SUSE)</span>
+              <span class="skill-tag">Windows Server</span>
+              <span class="skill-tag">VMware vSphere</span>
+              <span class="skill-tag">Oracle VM</span>
+              <span class="skill-tag">System Administration</span>
+            </div>
+          </div>
+
+          <!-- Category 5 -->
+          <div class="skill-card">
+            <div class="skill-header">
+              <i class="fa-solid fa-chart-line skill-icon"></i>
+              <h3>Monitoring & Observability</h3>
+            </div>
+            <div class="tag-cloud">
+              <span class="skill-tag">Prometheus</span>
+              <span class="skill-tag">Grafana</span>
+              <span class="skill-tag">Azure Monitor</span>
+              <span class="skill-tag">ELK Stack</span>
+              <span class="skill-tag">Log Analysis</span>
+            </div>
+          </div>
+
+          <!-- Category 6 -->
+          <div class="skill-card">
+            <div class="skill-header">
+              <i class="fa-solid fa-shield-halved skill-icon"></i>
+              <h3>Methodologies & Practices</h3>
+            </div>
+            <div class="tag-cloud">
+              <span class="skill-tag">SRE Practices</span>
+              <span class="skill-tag">DevOps Culture</span>
+              <span class="skill-tag">Incident Management</span>
+              <span class="skill-tag">Root Cause Analysis (RCA)</span>
+              <span class="skill-tag">SLO / SLA Management</span>
+              <span class="skill-tag">Agile / Scrum</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-subtitle">Career History</span>
+          <h2 class="section-title">Work Experience</h2>
+        </div>
+
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card">
+              <div class="timeline-meta">
+                <span class="role-badge">2021 — Present</span>
+                <span class="location-badge"><i class="fa-solid fa-location-dot"></i> Vijayawada, India</span>
+              </div>
+              <h3 class="role-title">Software Engineer (SRE & Production Support Focus)</h3>
+              <h4 class="company-name">HCL Technologies <span class="client-tag">(Client: Dell)</span></h4>
+
+              <ul class="timeline-responsibilities">
+                <li>Ensured 24x7 high availability and resilience of enterprise backup platforms (Dell NetWorker, CloudBoost, and NetWorker Virtual Edition).</li>
+                <li>Performed deep-dive Root Cause Analysis (RCA) on production incidents by reviewing stack traces, code snippets, execution logs, and environment variables, reducing escalation resolution delays by <strong>20%</strong>.</li>
+                <li>Engineered Python and Bash automation scripts for CI/CD pipeline triggers, test suite execution, and configuration updates, saving <strong>45 hours per week</strong> in manual operational toil.</li>
+                <li>Provisioned and managed Linux/Windows virtual infrastructure on VMware vSphere and maintained continuous integration pipelines, speeding up deployment velocity by <strong>30%</strong>.</li>
+                <li>Orchestrated incident remediation and cumulative hotfix (CHF) release procedures, delivering diagnostic binaries and minimizing customer defect tickets by <strong>15%</strong>.</li>
+                <li>Executed vulnerability scanning routines and infrastructure hardening across enterprise RHEL and Windows environments.</li>
+                <li>Authored standardized operational runbooks and disaster recovery run procedures to drastically improve team Mean Time To Recovery (MTTR).</li>
+              </ul>
+
+              <div class="timeline-tags">
+                <span>Dell NetWorker</span>
+                <span>Python</span>
+                <span>Bash</span>
+                <span>Docker</span>
+                <span>Jenkins</span>
+                <span>VMware</span>
+                <span>RHEL</span>
+                <span>RCA</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section id="certifications" class="section bg-alt">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-subtitle">Continuous Learning</span>
+          <h2 class="section-title">Certifications & Credentials</h2>
+        </div>
+
+        <div class="certifications-grid">
+          <div class="cert-card">
+            <div class="cert-icon-wrapper">
+              <i class="fa-brands fa-google"></i>
+            </div>
+            <div class="cert-info">
+              <h3>Professional Cloud Data Engineer</h3>
+              <p class="issuer">Google</p>
+              <span class="cert-date">June 2025</span>
+            </div>
+          </div>
+
+          <div class="cert-card">
+            <div class="cert-icon-wrapper">
+              <i class="fa-brands fa-google"></i>
+            </div>
+            <div class="cert-info">
+              <h3>Professional Machine Learning Engineer</h3>
+              <p class="issuer">Google</p>
+              <span class="cert-date">May 2025</span>
+            </div>
+          </div>
+
+          <div class="cert-card">
+            <div class="cert-icon-wrapper">
+              <i class="fa-brands fa-google"></i>
+            </div>
+            <div class="cert-info">
+              <h3>Google Cloud Digital Leader</h3>
+              <p class="issuer">Google</p>
+              <span class="cert-date">April 2025</span>
+            </div>
+          </div>
+
+          <div class="cert-card">
+            <div class="cert-icon-wrapper">
+              <i class="fa-solid fa-graduation-cap"></i>
+            </div>
+            <div class="cert-info">
+              <h3>DevOps Fundamentals</h3>
+              <p class="issuer">Percipio</p>
+              <span class="cert-date">September 2024</span>
+            </div>
+          </div>
+
+          <div class="cert-card">
+            <div class="cert-icon-wrapper">
+              <i class="fa-solid fa-brain"></i>
+            </div>
+            <div class="cert-info">
+              <h3>Gen AI for Developers and Testers</h3>
+              <p class="issuer">Percipio</p>
+              <span class="cert-date">August 2024</span>
+            </div>
+          </div>
+
+          <div class="cert-card">
+            <div class="cert-icon-wrapper">
+              <i class="fa-brands fa-git-alt"></i>
+            </div>
+            <div class="cert-info">
+              <h3>Git and GitHub</h3>
+              <p class="issuer">LinkedIn</p>
+              <span class="cert-date">July 2024</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Publications & Academic Research -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-subtitle">Research</span>
+          <h2 class="section-title">Published Papers</h2>
+        </div>
+
+        <div class="publications-grid">
+          <div class="pub-card">
+            <span class="pub-journal">International Journal of Management Technology and Engineering (IJMTE)</span>
+            <h3 class="pub-title">Density based traffic control system using Arduino and Ultrasonic sensors</h3>
+            <p class="pub-date"><i class="fa-regular fa-calendar"></i> June 2019 — April 2020</p>
+          </div>
+
+          <div class="pub-card">
+            <span class="pub-journal">International Journal of Management Technology and Engineering (IJMTE)</span>
+            <h3 class="pub-title">On-board Charging Station Using an Intelligent Controller</h3>
+            <p class="pub-date"><i class="fa-regular fa-calendar"></i> August 2018 — May 2019</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="section bg-alt">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-subtitle">Background</span>
+          <h2 class="section-title">Education</h2>
+        </div>
+
+        <div class="education-grid">
+          <div class="edu-card">
+            <div class="edu-year">2017 — 2021</div>
+            <h3 class="edu-degree">Bachelor of Technology (B.Tech)</h3>
+            <h4 class="edu-field">Electrical and Electronics Engineering</h4>
+            <p class="edu-institution">Pragati Engineering College</p>
+            <div class="edu-score">CGPA: <strong>8.46 / 10</strong></div>
+          </div>
+
+          <div class="edu-card">
+            <div class="edu-year">2015 — 2017</div>
+            <h3 class="edu-degree">Intermediate (Class XII)</h3>
+            <h4 class="edu-field">Mathematics, Physics and Chemistry (MPC)</h4>
+            <p class="edu-institution">Sri Chaitanya Jr. College</p>
+            <div class="edu-score">GPA: <strong>9.0 / 10</strong></div>
+          </div>
+
+          <div class="edu-card">
+            <div class="edu-year">2014 — 2015</div>
+            <h3 class="edu-degree">Secondary School Certificate (Class X)</h3>
+            <h4 class="edu-field">General Curriculum</h4>
+            <p class="edu-institution">Bhashyam Education Institutions</p>
+            <div class="edu-score">GPA: <strong>9.0 / 10</strong></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-subtitle">Reach Out</span>
+          <h2 class="section-title">Get In Touch</h2>
+        </div>
+
+        <div class="contact-container">
+          <div class="contact-info">
+            <h3>Let's talk infrastructure & reliability</h3>
+            <p>
+              I am open to discussions regarding SRE roles, infrastructure scalability, automation strategies, or cloud platform migrations.
+            </p>
+
+            <div class="contact-methods">
+              <div class="contact-method-item">
+                <i class="fa-solid fa-envelope"></i>
+                <div>
+                  <h4>Email</h4>
+                  <a href="mailto:mehersesetti@gmail.com">mehersesetti@gmail.com</a>
+                </div>
+              </div>
+
+              <div class="contact-method-item">
+                <i class="fa-solid fa-phone"></i>
+                <div>
+                  <h4>Phone</h4>
+                  <a href="tel:+917075924336">+91 7075924336</a>
+                </div>
+              </div>
+
+              <div class="contact-method-item">
+                <i class="fa-solid fa-location-dot"></i>
+                <div>
+                  <h4>Location</h4>
+                  <span>Rajahmundry, Andhra Pradesh, India</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <form class="contact-form" onsubmit="event.preventDefault(); alert('Thank you! Please send direct correspondence to mehersesetti@gmail.com');">
+            <div class="form-group">
+              <label for="name">Your Name</label>
+              <input type="text" id="name" required placeholder="Jane Doe" />
+            </div>
+            <div class="form-group">
+              <label for="email">Your Email</label>
+              <input type="email" id="email" required placeholder="jane@company.com" />
+            </div>
+            <div class="form-group">
+              <label for="subject">Subject</label>
+              <input type="text" id="subject" required placeholder="Infrastructure / SRE Opportunity" />
+            </div>
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" rows="4" required placeholder="Write your message here..."></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary w-full">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-content">
+      <p>&copy; <span id="year"></span> Sesetti Mehar Aditya. Built for high availability on GitHub Pages.</p>
+      <div class="footer-links">
+        <a href="#hero">Back to top <i class="fa-solid fa-arrow-up"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Script -->
+  <script src="script.js"></script>
+</body>
+</html>
