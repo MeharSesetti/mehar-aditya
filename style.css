@@ -1,12 +1,13 @@
 /* ==========================================================================
-   CSS Variables & Theme Definitions
+   CSS Variables & Universal Theme Scoping
    ========================================================================== */
 :root,
-[data-theme="dark"] {
+html[data-theme="dark"],
+body[data-theme="dark"] {
   --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
 
-  /* Dark Theme Palette */
+  /* Dark Theme Tokens */
   --bg-primary: #0b1120;
   --bg-secondary: #0f172a;
   --bg-card: #1e293b;
@@ -34,13 +35,14 @@
   --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-[data-theme="light"] {
-  /* Light Theme Palette */
-  --bg-primary: #f8fafc;
-  --bg-secondary: #ffffff;
+html[data-theme="light"],
+body[data-theme="light"] {
+  /* Light Theme Tokens */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8fafc;
   --bg-card: #ffffff;
   --bg-card-hover: #f1f5f9;
-  --bg-header: rgba(248, 250, 252, 0.9);
+  --bg-header: rgba(255, 255, 255, 0.92);
   --border-color: #cbd5e1;
 
   --text-primary: #0f172a;
@@ -57,7 +59,7 @@
 }
 
 /* ==========================================================================
-   Global Reset & Base Canvas
+   Global Reset & Canvas Enforcement
    ========================================================================== */
 * {
   margin: 0;
@@ -70,12 +72,13 @@ html {
 }
 
 html, body {
-  background-color: var(--bg-primary);
-  color: var(--text-primary);
+  background-color: var(--bg-primary) !important;
+  color: var(--text-primary) !important;
   font-family: var(--font-sans);
   line-height: 1.6;
   transition: background-color 0.25s ease, color 0.25s ease;
   overflow-x: hidden;
+  width: 100%;
 }
 
 .container {
@@ -86,10 +89,11 @@ html, body {
 
 .section {
   padding: 5rem 0;
+  background-color: var(--bg-primary);
 }
 
 .bg-alt {
-  background-color: var(--bg-secondary);
+  background-color: var(--bg-secondary) !important;
 }
 
 .section-header {
@@ -119,13 +123,13 @@ html, body {
 }
 
 /* ==========================================================================
-   Header & Dynamic Navbar
+   Header & Navbar
    ========================================================================== */
 .header {
   position: sticky;
   top: 0;
   z-index: 1000;
-  background-color: var(--bg-header);
+  background-color: var(--bg-header) !important;
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border-color);
@@ -143,7 +147,7 @@ html, body {
   font-family: var(--font-mono);
   font-size: 1.15rem;
   font-weight: 700;
-  color: var(--text-primary);
+  color: var(--text-primary) !important;
   text-decoration: none;
   letter-spacing: -0.5px;
 }
@@ -170,7 +174,7 @@ html, body {
 
 .nav-link {
   text-decoration: none;
-  color: var(--text-secondary);
+  color: var(--text-secondary) !important;
   font-size: 0.95rem;
   font-weight: 500;
   transition: var(--transition);
@@ -178,7 +182,7 @@ html, body {
 
 .nav-link:hover,
 .nav-link.active {
-  color: var(--accent);
+  color: var(--accent) !important;
 }
 
 .nav-actions {
@@ -190,7 +194,7 @@ html, body {
 .theme-btn {
   background: var(--bg-card);
   border: 1px solid var(--border-color);
-  color: var(--text-primary);
+  color: var(--accent);
   padding: 0.55rem 0.8rem;
   border-radius: var(--radius-sm);
   cursor: pointer;
@@ -203,14 +207,14 @@ html, body {
 
 .theme-btn:hover {
   border-color: var(--accent);
-  color: var(--accent);
+  background: var(--bg-card-hover);
 }
 
-/* Toggle icon display per theme */
-[data-theme="dark"] .light-icon { display: inline-block; }
-[data-theme="dark"] .dark-icon { display: none; }
-[data-theme="light"] .light-icon { display: none; }
-[data-theme="light"] .dark-icon { display: inline-block; }
+/* Icon visibility per theme */
+[data-theme="dark"] .light-icon { display: inline-block !important; }
+[data-theme="dark"] .dark-icon { display: none !important; }
+[data-theme="light"] .light-icon { display: none !important; }
+[data-theme="light"] .dark-icon { display: inline-block !important; }
 
 .hamburger {
   display: none;
@@ -233,6 +237,7 @@ html, body {
    ========================================================================== */
 .hero-section {
   padding: 6rem 0 4rem;
+  background-color: var(--bg-primary);
 }
 
 .hero-badge {
@@ -312,7 +317,7 @@ html, body {
 
 .btn-primary {
   background-color: var(--accent);
-  color: #ffffff;
+  color: #ffffff !important;
 }
 
 .btn-primary:hover {
@@ -323,7 +328,7 @@ html, body {
 
 .btn-secondary {
   background-color: var(--bg-card);
-  color: var(--text-primary);
+  color: var(--text-primary) !important;
   border-color: var(--border-color);
 }
 
@@ -364,6 +369,7 @@ html, body {
    ========================================================================== */
 .metrics-section {
   padding: 2rem 0 4rem;
+  background-color: var(--bg-primary);
 }
 
 .metrics-grid {
@@ -841,7 +847,7 @@ html, body {
 .footer {
   border-top: 1px solid var(--border-color);
   padding: 2.5rem 0;
-  background: var(--bg-secondary);
+  background: var(--bg-secondary) !important;
   font-size: 0.9rem;
   color: var(--text-muted);
 }

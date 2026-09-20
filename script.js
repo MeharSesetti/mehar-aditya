@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   const themeToggleBtn = document.getElementById('theme-toggle');
 
-  // Helper function to apply theme to BOTH <html> and <body> synchronously
+  // Applies theme attribute to both <html> and <body> to prevent inheritance mismatch
   function applyTheme(theme) {
     document.documentElement.setAttribute('data-theme', theme);
     document.body.setAttribute('data-theme', theme);
@@ -12,22 +12,22 @@ document.addEventListener('DOMContentLoaded', () => {
   const savedTheme = localStorage.getItem('mehar-portfolio-theme') || 'dark';
   applyTheme(savedTheme);
 
-  // Toggle handler
+  // Toggle theme on button click
   if (themeToggleBtn) {
     themeToggleBtn.addEventListener('click', () => {
       const activeTheme = document.documentElement.getAttribute('data-theme') || 'dark';
-      const targetTheme = activeTheme === 'dark' ? 'light' : 'dark';
-      applyTheme(targetTheme);
+      const nextTheme = activeTheme === 'dark' ? 'light' : 'dark';
+      applyTheme(nextTheme);
     });
   }
 
-  // Auto-updating Footer Year
+  // Dynamic Year in Footer
   const yearSpan = document.getElementById('year');
   if (yearSpan) {
     yearSpan.textContent = new Date().getFullYear();
   }
 
-  // Mobile Hamburger Menu
+  // Mobile Menu Navigation
   const hamburger = document.getElementById('hamburger');
   const navMenu = document.querySelector('.nav-menu');
   const navLinks = document.querySelectorAll('.nav-link');
